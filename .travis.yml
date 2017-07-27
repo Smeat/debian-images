@@ -11,7 +11,7 @@ env:
         - ARCH=armhf    VERSION=jessie    QEMU_ARCH=arm
         - ARCH=arm64  VERSION=jessie    QEMU_ARCH=aarch64
 before_script:
-    - sudo apt-get -y install qemu-user-static
+    - sudo apt-get -y install qemu-user-static debootstrap
 script:
     - sudo ./update.sh -a "$ARCH" -v "$VERSION" -q "$QEMU_ARCH" -u "$QEMU_VER" -d "$DOCKER_REPO"
 after_success:
