@@ -6,7 +6,7 @@ env:
         - QEMU_VER=v2.8.4
         - DOCKER_REPO=smeat/debian
     matrix:
-        - ARCH=x86      VERSION=jessie    QEMU_ARCH=i386
+        - ARCH=i386      VERSION=jessie    QEMU_ARCH=i386
         - ARCH=amd64   VERSION=jessie    QEMU_ARCH=x86_64
         - ARCH=armhf    VERSION=jessie    QEMU_ARCH=arm
         - ARCH=arm64  VERSION=jessie    QEMU_ARCH=aarch64

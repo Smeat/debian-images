@@ -1,4 +1,4 @@
-#!/bin/bash -ex
+#!/bin/bash -e
 
 # A POSIX variable
 OPTIND=1 # Reset in case getopts has been used previously in the shell.
@@ -69,5 +69,4 @@ fi
 
 # build
 docker build -t "${DOCKER_REPO}:${ARCH}-${VERSION}" .
-docker run --rm "${DOCKER_REPO}:${ARCH}-${VERSION}" /bin/sh -ec "echo Hello from Alpine !; set -x; uname -a; cat /etc/alpine-release"
 
