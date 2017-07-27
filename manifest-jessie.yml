@@ -1,12 +1,12 @@
 image: smeat/debian:jessie
 manifests:
   -
-    image: smeat/alpine:x86-jessie
+    image: smeat/alpine:i386-jessie
     platform:
       architecture: 386
       os: linux
   -
-    image: smeat/alpine:x86_64-jessie
+    image: smeat/alpine:amd64-jessie
     platform:
       architecture: amd64
       os: linux
@@ -16,7 +16,7 @@ manifests:
       architecture: arm
       os: linux
   -
-    image: smeat/alpine:aarch64-jessie
+    image: smeat/alpine:arm64-jessie
     platform:
       architecture: arm64
       os: linux
