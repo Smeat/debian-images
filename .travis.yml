@@ -1,0 +1,23 @@
+sudo: required
+services: docker
+language: bash
+env:
+    global:
+        - QEMU_VER=v2.8.4
+        - DOCKER_REPO=smeat/debian
+    matrix:
+        - ARCH=x86      VERSION=jessie    QEMU_ARCH=i386
+        - ARCH=amd64   VERSION=jessie    QEMU_ARCH=x86_64
+        - ARCH=armhf    VERSION=jessie    QEMU_ARCH=arm
+        - ARCH=arm64  VERSION=jessie    QEMU_ARCH=aarch64
+before_script:
+    - sudo apt-get -y install qemu-user-static
+script:
+    - sudo ./update.sh -a "$ARCH" -v "$VERSION" -q "$QEMU_ARCH" -u "$QEMU_VER" -d "$DOCKER_REPO"
+after_success:
+    - if [[ $TRAVIS_PULL_REQUEST == 'false' ]]; then docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD" && docker push $DOCKER_REPO; fi
+
+jobs:
+  include:
+    - stage: deploy
+      script: sh ./update_manifest.sh $DOCKER_USERNAME $DOCKER_PASSWORD
