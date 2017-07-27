@@ -46,7 +46,8 @@ DEBIAN_FRONTEND=noninteractive DEBCONF_NONINTERACTIVE_SEEN=true \
  DEBIAN_FRONTEND=noninteractive DEBCONF_NONINTERACTIVE_SEEN=true \
  LC_ALL=C LANGUAGE=C LANG=C chroot $ROOTFS dpkg --configure -a
  
-
+echo "deb http://httpredir.debian.org/debian jessie main contrib non-free" > /etc/apt/sources.list
+ 
 # create tarball of rootfs
 if [ ! -f rootfs.tar.xz ]; then
     tar --numeric-owner -C $ROOTFS -c . | xz > rootfs.tar.xz
