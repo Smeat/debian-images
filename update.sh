@@ -29,7 +29,7 @@ shift $((OPTIND-1))
 
 ROOTFS=rootfs
 
-debootstrap --foreign --variant=minbase --components=main --arch=$ARCH --include=inetutils-ping,iproute2  jessie $ROOTFS http://httpredir.debian.org/debian
+debootstrap --foreign --variant=minbase --components=main --arch=$ARCH --include=inetutils-ping,iproute2  ${VERSION} $ROOTFS http://httpredir.debian.org/debian
 
 
 # install qemu-user-static
@@ -46,7 +46,7 @@ DEBIAN_FRONTEND=noninteractive DEBCONF_NONINTERACTIVE_SEEN=true \
  DEBIAN_FRONTEND=noninteractive DEBCONF_NONINTERACTIVE_SEEN=true \
  LC_ALL=C LANGUAGE=C LANG=C chroot $ROOTFS dpkg --configure -a
  
-echo "deb http://httpredir.debian.org/debian jessie main contrib non-free" > $ROOTFS/etc/apt/sources.list
+echo "deb http://httpredir.debian.org/debian ${VERSION} main contrib non-free" > $ROOTFS/etc/apt/sources.list
  
 # create tarball of rootfs
 if [ ! -f rootfs.tar.xz ]; then

@@ -10,6 +10,10 @@ env:
         - ARCH=amd64   VERSION=jessie    QEMU_ARCH=x86_64
         - ARCH=armhf    VERSION=jessie    QEMU_ARCH=arm
         - ARCH=arm64  VERSION=jessie    QEMU_ARCH=aarch64
+        - ARCH=i386      VERSION=stretch    QEMU_ARCH=i386
+        - ARCH=amd64   VERSION=stretch    QEMU_ARCH=x86_64
+        - ARCH=armhf    VERSION=stretch    QEMU_ARCH=arm
+        - ARCH=arm64  VERSION=stretch    QEMU_ARCH=aarch64
 before_script:
     - sudo apt-get -y install qemu-user-static debootstrap
 script:
