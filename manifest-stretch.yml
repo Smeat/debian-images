@@ -1,0 +1,22 @@
+image: smeat/debian:stretch
+manifests:
+  -
+    image: smeat/debian:i386-stretch
+    platform:
+      architecture: 386
+      os: linux
+  -
+    image: smeat/debian:amd64-stretch
+    platform:
+      architecture: amd64
+      os: linux
+  -
+    image: smeat/debian:armhf-stretch
+    platform:
+      architecture: arm
+      os: linux
+  -
+    image: smeat/debian:arm64-stretch
+    platform:
+      architecture: arm64
+      os: linux
